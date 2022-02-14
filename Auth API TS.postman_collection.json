@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "0a2f7c84-019c-4586-848b-73a6b756d16b",
+		"name": "Auth API TS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Joe\",\n    \"lastName\": \"Mama\",\n    \"password\": \"dupa123\",\n    \"passwordConfirmation\": \"dupa123\",\n    \"email\":\"anna@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/users/verify/620a938abaee23a583f8d661/CSj2LI8KBP8fT3LZQ4vWT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"verify",
+								"620a938abaee23a583f8d661",
+								"CSj2LI8KBP8fT3LZQ4vWT"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "request reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"anna@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users/forgotpassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"forgotpassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"dupa12345\",\n    \"passwordConfirmation\": \"dupa12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users/resetpassword/620a938abaee23a583f8d661/5q9hXc_TZ3CAJ4jWp29M1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"resetpassword",
+								"620a938abaee23a583f8d661",
+								"5q9hXc_TZ3CAJ4jWp29M1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get current user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjBhOTM4YWJhZWUyM2E1ODNmOGQ2NjEiLCJlbWFpbCI6ImFubmFAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiSm9lIiwibGFzdE5hbWUiOiJNYW1hIiwiY3JlYXRlZEF0IjoiMjAyMi0wMi0xNFQxNzozODoxOC4zNTVaIiwidXBkYXRlZEF0IjoiMjAyMi0wMi0xNFQxNzo0MDozNC41NDZaIiwiaWF0IjoxNjQ0ODY1NTg5LCJleHAiOjE2NDQ4NjY0ODl9.Hmt6kW6AYvA_8Ucenh2gQ15T6eFVkr3wJ8zlbPTzcgNwmbJew68YLTQmsgnbUke36ZGp1vzAG9lbyVNdnWcNXc7BfKFXBd-tzhBfwD-km5RlgDl-vpIYAoHfybCuo-onF2Fom7y9ZUj0-t8mT-PruDv274zcsdOtZHcWQZ9Z-RE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"anna@gmail.com\",\n    \"password\": \"dupa12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/session",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh access token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uIjoiNjIwYWE4MzUzZTNiOWZhNGI2YTc0NDRmIiwiaWF0IjoxNjQ0ODY1NTg5LCJleHAiOjE2NzY0MjMxODl9.TYc6AnwskvrHV0QEl1s5KDasra9loISs7lNS-y7sXK5zSuMurilqzjejCkVR4kIhTA0OhRyf5XBq5K37fF805e7qEhQ24BFSMeDh2Rt_aprvgQuHSORWXINGT3CMm6JsS6J7RQ_4DrBgwghn9gvPjF2v9d4zmaDhaaXLEszg-U8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/session/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"session",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
